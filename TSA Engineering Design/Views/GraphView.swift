@@ -9,7 +9,7 @@ import SwiftUI
 import Charts
 
 struct GraphView: View {
-    
+    //Remove this later
     //Change the values according to input
     var sodiumData = Data(lvls: [148, 149, 148, 150, 152, 151])
     let sodium = SodiumLvls.exampleLvl
