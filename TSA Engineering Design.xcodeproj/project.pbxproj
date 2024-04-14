@@ -7,27 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE0B87F62BCB0C5A00B8B12A /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0B87F52BCB0C5A00B8B12A /* CalendarModel.swift */; };
+		FE0B87F82BCB0C7800B8B12A /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0B87F72BCB0C7800B8B12A /* CalendarView.swift */; };
+		FE0B87FA2BCB119D00B8B12A /* GraphModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0B87F92BCB119D00B8B12A /* GraphModel.swift */; };
+		FE0B87FC2BCC598E00B8B12A /* TableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0B87FB2BCC598E00B8B12A /* TableModel.swift */; };
 		FE200D912B7D19E400707B85 /* TSA_Engineering_DesignApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE200D902B7D19E400707B85 /* TSA_Engineering_DesignApp.swift */; };
 		FE200D932B7D19E400707B85 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE200D922B7D19E400707B85 /* ContentView.swift */; };
 		FE200D952B7D19E500707B85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE200D942B7D19E500707B85 /* Assets.xcassets */; };
 		FE200D982B7D19E500707B85 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE200D972B7D19E500707B85 /* Preview Assets.xcassets */; };
 		FE40A14D2B82B9F1009BE1C8 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE40A14C2B82B9F1009BE1C8 /* GraphView.swift */; };
-		FE40A1502B82BA1D009BE1C8 /* CalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE40A14F2B82BA1D009BE1C8 /* CalenderView.swift */; };
 		FE40A1522B82BA37009BE1C8 /* DietView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE40A1512B82BA37009BE1C8 /* DietView.swift */; };
-		FE40A1552B82BC12009BE1C8 /* SodiumLvls.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE40A1542B82BC12009BE1C8 /* SodiumLvls.swift */; };
 		FEBAF0E02B82F4750062C23C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBAF0DF2B82F4750062C23C /* Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FE0B87F52BCB0C5A00B8B12A /* CalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
+		FE0B87F72BCB0C7800B8B12A /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		FE0B87F92BCB119D00B8B12A /* GraphModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphModel.swift; sourceTree = "<group>"; };
+		FE0B87FB2BCC598E00B8B12A /* TableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableModel.swift; sourceTree = "<group>"; };
 		FE200D8D2B7D19E400707B85 /* TSA Engineering Design.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TSA Engineering Design.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE200D902B7D19E400707B85 /* TSA_Engineering_DesignApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSA_Engineering_DesignApp.swift; sourceTree = "<group>"; };
 		FE200D922B7D19E400707B85 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FE200D942B7D19E500707B85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE200D972B7D19E500707B85 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FE40A14C2B82B9F1009BE1C8 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
-		FE40A14F2B82BA1D009BE1C8 /* CalenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderView.swift; sourceTree = "<group>"; };
 		FE40A1512B82BA37009BE1C8 /* DietView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietView.swift; sourceTree = "<group>"; };
-		FE40A1542B82BC12009BE1C8 /* SodiumLvls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SodiumLvls.swift; sourceTree = "<group>"; };
 		FEBAF0DF2B82F4750062C23C /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -42,6 +46,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FE0B87F42BCB0C2F00B8B12A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FE0B87F52BCB0C5A00B8B12A /* CalendarModel.swift */,
+				FE0B87F92BCB119D00B8B12A /* GraphModel.swift */,
+				FE0B87FB2BCC598E00B8B12A /* TableModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		FE200D842B7D19E400707B85 = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +78,7 @@
 				FE40A1532B82BBF6009BE1C8 /* Statistics */,
 				FE40A14E2B82B9F5009BE1C8 /* Views */,
 				FE200D902B7D19E400707B85 /* TSA_Engineering_DesignApp.swift */,
+				FE0B87F42BCB0C2F00B8B12A /* Models */,
 				FE200D942B7D19E500707B85 /* Assets.xcassets */,
 				FE200D962B7D19E500707B85 /* Preview Content */,
 			);
@@ -82,7 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				FE40A14C2B82B9F1009BE1C8 /* GraphView.swift */,
-				FE40A14F2B82BA1D009BE1C8 /* CalenderView.swift */,
+				FE0B87F72BCB0C7800B8B12A /* CalendarView.swift */,
 				FE40A1512B82BA37009BE1C8 /* DietView.swift */,
 				FE200D922B7D19E400707B85 /* ContentView.swift */,
 			);
@@ -92,7 +107,6 @@
 		FE40A1532B82BBF6009BE1C8 /* Statistics */ = {
 			isa = PBXGroup;
 			children = (
-				FE40A1542B82BC12009BE1C8 /* SodiumLvls.swift */,
 				FEBAF0DF2B82F4750062C23C /* Data.swift */,
 			);
 			path = Statistics;
@@ -168,13 +182,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE0B87F62BCB0C5A00B8B12A /* CalendarModel.swift in Sources */,
 				FEBAF0E02B82F4750062C23C /* Data.swift in Sources */,
+				FE0B87F82BCB0C7800B8B12A /* CalendarView.swift in Sources */,
 				FE40A1522B82BA37009BE1C8 /* DietView.swift in Sources */,
 				FE200D932B7D19E400707B85 /* ContentView.swift in Sources */,
 				FE200D912B7D19E400707B85 /* TSA_Engineering_DesignApp.swift in Sources */,
-				FE40A1502B82BA1D009BE1C8 /* CalenderView.swift in Sources */,
 				FE40A14D2B82B9F1009BE1C8 /* GraphView.swift in Sources */,
-				FE40A1552B82BC12009BE1C8 /* SodiumLvls.swift in Sources */,
+				FE0B87FA2BCB119D00B8B12A /* GraphModel.swift in Sources */,
+				FE0B87FC2BCC598E00B8B12A /* TableModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

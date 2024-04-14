@@ -17,8 +17,7 @@ struct ContentView: View {
                 GraphView()
             }
             if view == 2{
-                CalenderView()
-//                CalenderView(interval: DateInterval(start: .distantPast, end: .distantFuture))
+
             }
             if view == 3{
                 DietView()
@@ -28,7 +27,9 @@ struct ContentView: View {
                 ZStack{
                     HStack{
                         Button {
-                            view = 1
+                            DispatchQueue.main.asyncAfter(deadline: .now()){
+                                view = 1
+                            }
                         } label: {
                             Image(systemName: "chart.bar.fill")
                                 .resizable()
