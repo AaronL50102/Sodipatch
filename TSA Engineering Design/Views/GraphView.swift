@@ -96,6 +96,7 @@ struct GraphView: View {
                 .padding(.leading, 45)
                 .offset(y: -20)
                 GraphModel()
+                TableModel()
             }
         }
     }
