@@ -20,20 +20,43 @@ struct CalendarView: View {
 //            Text(Date.now, format: .dateTime.hour().minute())
             Spacer()
             CalendarModel(interval: DateInterval(start: .distantPast, end: .distantFuture))
-                .scaleEffect(0.9)
+                .scaleEffect(0.85)
             HStack{
                 Text("SODIUM LEVEL")
                     .font(.footnote)
                     .foregroundColor(.gray)
                 Spacer()
-                Text("YESTERDAY")
+                Text("[Insert Date]")
                     .font(.footnote)
                     .foregroundColor(.gray)
             }
             .padding([.leading, .trailing], 35)
             .offset(y: -20)
-            Text("\(Data.average())")
-            GraphModel(width: 300, height: 200)
+            HStack{
+                VStack{
+                    Text("\(Data.average())")
+                        .fontWeight(.heavy)
+                        .font(.system(size: 50))
+                        .frame(alignment: .leading)
+                    Text("mEq/L")
+                        .foregroundColor(Color(hue: 1.0, saturation: 0.0, brightness: 0.302))
+                        .fontWeight(.bold)
+                        .offset(x: 30, y: -10)
+                }
+                VStack{
+                    Text(Data.state())//Change later according to actual level
+                        .fontWeight(.bold)
+                        .foregroundColor(Data.state() == "Moderate / Normal" ? .green : .red)
+                        .font(.system(size: 10))
+                    Text("Daily Avg.")
+                        .font(.system(size: 20))
+                    Spacer()
+                }
+                .offset(x: 10)
+                Spacer()
+            }
+            .padding(.leading, 45)
+            GraphModel(width: 290, height: 100)
         }
     }
 }

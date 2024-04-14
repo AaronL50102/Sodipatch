@@ -14,7 +14,6 @@ struct Data: Identifiable, Equatable {
     var time: Int
     var value: Int
     
-    //CHANGE THESE VALUES ACCORDING TO SENSOR INPUT
     static var values = [1024, 924, 824, 724, 624, 524]
     
     static var data: [Data] = [
@@ -27,30 +26,29 @@ struct Data: Identifiable, Equatable {
     ]
     
     static func state() -> String {
-            var stateMessage = String()
-            //Change these values accordingly
-            if data[5].value <= 100 {
-                stateMessage = "! Low Sodium"
-            }
-            else if data[5].value <= 125 {
-                stateMessage = "Moderate / Normal"
-            }
-            else {
-                stateMessage = "! High Sodium"
-            }
-            return stateMessage
+        var stateMessage = String()
+        //Change these values accordingly
+        if data[5].value <= 100 {
+            stateMessage = "! Low Sodium"
         }
+        else if data[5].value <= 125 {
+            stateMessage = "Moderate / Normal"
+        }
+        else {
+            stateMessage = "! High Sodium"
+        }
+        return stateMessage
+    }
     
     static func average() -> Int {
         return (data[5].value + data[4].value + data[3].value + data[2].value + data[1].value + data[0].value) / 6
     }
     
-    static func updateData(value: Int){
-        let time = data[5].time + 1
+    static func updateData(value: Int, interval: Int){
+        let time = data[5].time + interval
         data.remove(at: 0)
         data.append(Data(time: time, value: value))
         values.remove(at: 0)
         values.append(value)
-        print(values)
     }
 }

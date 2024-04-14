@@ -12,9 +12,9 @@ struct GraphView: View {
     //Remove this later
     
     @State var display: Int = 1
+    @State var toggleGraphTable: Int = 1
     
     var body: some View {
-        ScrollView{
             VStack{
                 HStack{
                     Text("Good Morning, ABCDE")
@@ -47,6 +47,13 @@ struct GraphView: View {
                 HStack{
                     Text("NOW")
                     Text(Date.now, format: .dateTime.hour().minute())
+                    HStack{
+                        Button {
+                            toggleGraphTable *= -1
+                        } label: {
+                            Image(systemName: "arrow.2.circlepath")
+                        }
+                    }
                     Spacer()
                     //¯\_(ツ)_/¯
                     ZStack{
@@ -79,7 +86,7 @@ struct GraphView: View {
                 TimelineView(.periodic(from: .now, by: 1)) {
                     context in
                     HStack{
-                        Text("\(Data.data[5].value) mEQ/L")//Note: assuming most current value is the last index in array. Change if not
+                        Text("\(Data.data[5].value) mEQ/L")
                             .font(.system(size: 40))
                             .foregroundColor(Color(hue: 0.637, saturation: 0.953, brightness: 0.572))
                         Spacer()
@@ -87,18 +94,26 @@ struct GraphView: View {
                     .padding(.leading, 43)
                     .offset(y: -20)
                 }
-                HStack{
-                    Text(Data.state())//Change later according to actual level
-                        .fontWeight(.bold)
-                        .foregroundColor(.red)
-                    Spacer()
+                VStack{
+                    HStack{
+                        Text(Data.state())
+                            .fontWeight(.bold)
+                            .foregroundColor(Data.state() == "Moderate / Normal" ? .green : .red)
+                        Spacer()
+                    }
+                    .padding(.leading, 45)
+                    .offset(y: -20)
                 }
-                .padding(.leading, 45)
-                .offset(y: -20)
-                GraphModel()
-                TableModel()
+                if toggleGraphTable == 1 {
+                    GraphModel()
+                }
+                else{
+                    ZStack{
+                        GraphModel().opacity(0)
+                        TableModel()
+                    }
+                }
             }
-        }
     }
 }
 

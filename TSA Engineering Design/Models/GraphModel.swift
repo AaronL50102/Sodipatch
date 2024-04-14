@@ -16,37 +16,52 @@ struct GraphModel: View {
     var data: [(type: String, values: [Data])]{
         [(type: "Sodium", values: sodiumData)]
     }
-
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State var interval: Double = 1
     
     var body: some View {
+        
+        let timer = Timer.publish(every: interval == 1 ? 1 : 30, on: .main, in: .common).autoconnect()
         TimelineView(.periodic(from: .now, by: 1)) {
             context in
-            
-            Chart(data, id: \.type) { dataSeries in
-                ForEach(dataSeries.values) { data in
-                    let _ = print(data.value)
-                    LineMark(
-                        x: .value("Time", data.time),
-                        y: .value("Level", data.value))
+            VStack{
+                Button {
+                    interval *= -1
+                } label: {
+                    HStack{
+                        Spacer()
+                        Image(systemName: "clock")
+                            .foregroundColor(.black)
+                    }
+                    .padding(.trailing, 55)
+                    .padding(.bottom, 15)
                 }
-                //.foregroundStyle(by: .value("Sodium", dataSeries.type))
-                .symbol(by: .value("Sodium", dataSeries.type))
-            }
-            .frame(width: 300, height: 300)
-            .chartYScale(domain: (Data.values.min() ?? 0)...(Data.values.max() ?? 1))
-            .chartXScale(domain: Data.data[0].time...Data.data[5].time)
-            .chartYAxis{
-                AxisMarks(values: Data.values)
-            }
-            .offset(y: -50)
-            .aspectRatio(1, contentMode: .fit)
-            .padding(.all, 50)
-            .onReceive(timer) { _ in
-                Data.updateData(value: Int.random(in: 700..<1024))//NEW INPUT GOES HERE, DELETE Int.random(in: 700..<1024)
-                self.sodiumData = Data.data
+
+                Chart(data, id: \.type) { dataSeries in
+                    ForEach(dataSeries.values) { data in
+                        let _ = print(data.value)
+                        LineMark(
+                            x: .value("Time", data.time),
+                            y: .value("Level", data.value))
+                    }
+                    //.foregroundStyle(by: .value("Sodium", dataSeries.type))
+                    .symbol(by: .value("Sodium", dataSeries.type))
+                }
+                .frame(width: width, height: height)
+                .chartYScale(domain: (Data.values.min() ?? 0)...(Data.values.max() ?? 1))
+                .chartXScale(domain: Data.data[0].time...Data.data[5].time)
+                .chartYAxis{
+                    AxisMarks(values: Data.values)
+                }
+                .offset(y: -50)
+                .aspectRatio(1, contentMode: .fit)
+                .padding(.all, 50)
+                .onReceive(timer) { _ in
+                    Data.updateData(value: Int.random(in: 700..<1024), interval: interval == 1 ? 1 : 30)//NEW INPUT GOES HERE, DELETE Int.random(in: 700..<1024)
+                    self.sodiumData = Data.data
+                }
             }
         }
+        .offset(y: -30)
     }
 }
 
