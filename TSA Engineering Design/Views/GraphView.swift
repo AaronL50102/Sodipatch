@@ -17,7 +17,7 @@ struct GraphView: View {
     var body: some View {
             VStack{
                 HStack{
-                    Text("Good Morning, ABCDE")
+                    Text("Good Morning,  Moin")
                         .fontWeight(.heavy)
                         .font(.system(size: 27))
                         .offset(y: 20)

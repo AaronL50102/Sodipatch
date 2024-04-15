@@ -11,7 +11,7 @@ struct TableModel: View {
     
     @State var sodiumData = Data.data
     @State var interval: Double = 1
-
+    @State var sodiumData2: [Double] = [0, 0, 0, 0, 0, 0]
     
     var body: some View {
         let timer = Timer.publish(every: interval == 1 ? 1 : 30, on: .main, in: .common).autoconnect()
@@ -22,10 +22,14 @@ struct TableModel: View {
                     Button {
                         interval *= -1
                     } label: {
-                        HStack{
+                        VStack{
                             Spacer()
-                            Image(systemName: "clock")
-                                .foregroundColor(.black)
+                            HStack{
+                                Spacer()
+                                Image(systemName: "clock")
+                                    .foregroundColor(.black)
+                            }
+                            Spacer()
                         }
                         .padding(.trailing, 55)
                         .padding(.top, 10)
@@ -35,6 +39,7 @@ struct TableModel: View {
                         .foregroundColor(.blue.opacity(0.3))
                         .frame(width: 240, height: 280)
                         .cornerRadius(20)
+                        .offset(y: -50)
                     HStack{
                         VStack{
                             Text("Time")
@@ -74,14 +79,17 @@ struct TableModel: View {
                         }
                     }
                     .padding([.leading, .trailing], 100)
+                    //.padding(.bottom, 140)
                     .onReceive(timer) { _ in
-                        Data.updateData(value: Int.random(in: 700..<1024), interval: interval == 1 ? 1 : 30)//NEW INPUT GOES HERE, DELETE Int.random(in: 700..<1024)
+//                        Data.updateDataArray(value: sodiumData2, interval: interval == 1 ? 1 : 30)
+//                        Data.updateData(value: Int.random(in: 700..<1024), interval: interval == 1 ? 1 : 30)//NEW INPUT GOES HERE, DELETE Int.random(in: 700..<1024)
                         self.sodiumData = Data.data
-                }
+                    }
+                    .offset(y: -50)
                 }
                 }
             }
-        .offset(y: -90)
+        .offset(y: -30)
     }
 }
 

@@ -11,12 +11,13 @@ import Charts
 struct GraphModel: View {
     
     var width: CGFloat = 300
-    var height: CGFloat = 300
+    var height: CGFloat = 250
     @State var sodiumData = Data.data
     var data: [(type: String, values: [Data])]{
         [(type: "Sodium", values: sodiumData)]
     }
     @State var interval: Double = 1
+    @State var sodiumData2: [Double] = [0, 0, 0, 0, 0, 0]
     
     var body: some View {
         
@@ -33,7 +34,7 @@ struct GraphModel: View {
                             .foregroundColor(.black)
                     }
                     .padding(.trailing, 55)
-                    .padding(.bottom, 15)
+                    .padding(.bottom, 45)
                 }
 
                 Chart(data, id: \.type) { dataSeries in
@@ -54,17 +55,16 @@ struct GraphModel: View {
                 }
                 .offset(y: -50)
                 .aspectRatio(1, contentMode: .fit)
-                .padding(.all, 50)
+                .padding(.all, 10)
                 .onReceive(timer) { _ in
-                    Data.updateData(value: Int.random(in: 700..<1024), interval: interval == 1 ? 1 : 30)//NEW INPUT GOES HERE, DELETE Int.random(in: 700..<1024)
+//                    Data.updateData(value: Int.random(in: 700..<1024), interval: interval == 1 ? 1 : 30)//NEW INPUT GOES HERE, DELETE Int.random(in: 700..<1024)
+//                    Data.updateDataArray(value: sodiumData2, interval: interval == 1 ? 1 : 30)
                     self.sodiumData = Data.data
                 }
             }
         }
-        .offset(y: -30)
     }
 }
-
 
 struct GraphModel_Previews: PreviewProvider {
     static var previews: some View {

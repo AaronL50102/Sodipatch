@@ -10,23 +10,28 @@ import SwiftUI
 struct CalendarView: View {
     
     let view = UICalendarView()
+    @State private var date = Date()
 
     var body: some View {
         VStack{
+            
             Text("TRACK YOUR HISTORY")
                 .fontWeight(.heavy)
                 .font(.system(size: 27))
                 .padding(.top, 60)
 //            Text(Date.now, format: .dateTime.hour().minute())
             Spacer()
-            CalendarModel(interval: DateInterval(start: .distantPast, end: .distantFuture))
-                .scaleEffect(0.85)
+            DatePicker("Start Date", selection: $date, displayedComponents: [.date])
+                .datePickerStyle(.graphical)
+                .padding(20)
+//            CalendarModel(interval: DateInterval(start: .distantPast, end: .distantFuture))
+//                .scaleEffect(0.85)
             HStack{
                 Text("SODIUM LEVEL")
                     .font(.footnote)
                     .foregroundColor(.gray)
                 Spacer()
-                Text("[Insert Date]")
+                Text(date.formatted(date: .long, time: .omitted))
                     .font(.footnote)
                     .foregroundColor(.gray)
             }
