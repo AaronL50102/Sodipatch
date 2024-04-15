@@ -22,7 +22,7 @@ CBPeripheralDelegate, ObservableObject {
 
     @Published var connectionMessage: String = ""
 
-    @Published public var sodiumData2: [Double] = []
+    @Published public var sodiumData2: [Double] = [0, 0, 0, 0, 0, 0]
 
 
 
