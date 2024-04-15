@@ -11,7 +11,6 @@ struct TableModel: View {
     
     @State var sodiumData = Data.data
     @State var interval: Double = 1
-    @State var sodiumData2: [Double] = [0, 0, 0, 0, 0, 0]
     
     var body: some View {
         let timer = Timer.publish(every: interval == 1 ? 1 : 30, on: .main, in: .common).autoconnect()

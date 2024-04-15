@@ -17,7 +17,6 @@ struct GraphModel: View {
         [(type: "Sodium", values: sodiumData)]
     }
     @State var interval: Double = 1
-    @State var sodiumData2: [Double] = [0, 0, 0, 0, 0, 0]
     
     var body: some View {
         
