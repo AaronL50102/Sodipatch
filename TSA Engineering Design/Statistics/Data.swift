@@ -60,8 +60,8 @@ struct Data: Identifiable, Equatable {
         let time1 = data[2].time
         let time0 = data[1].time
         
-        for i in 0..<data.count{
-            data.remove(at: i)
+        for _ in 0..<data.count{
+            data.remove(at: 0)
         }
         
         data.append(Data(time: time0, value: Int(value[0])))
