@@ -60,7 +60,8 @@ struct TableModel: View {
                         }
                         Spacer()
                         VStack{
-                            Text("Level")                    .font(.headline)
+                            Text("Level")
+                                .font(.headline)
                                 .fontWeight(.bold)
                                 .padding(10)
                             Text("\(sodiumData[0].value)")

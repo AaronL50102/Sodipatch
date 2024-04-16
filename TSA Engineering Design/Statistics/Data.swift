@@ -53,6 +53,8 @@ struct Data: Identifiable, Equatable {
     }
     
     static func updateDataArray(value: [Double], interval: Int){
+        
+        
         let time5 = data[5].time + interval
         let time4 = data[5].time
         let time3 = data[4].time
@@ -60,17 +62,17 @@ struct Data: Identifiable, Equatable {
         let time1 = data[2].time
         let time0 = data[1].time
         
-        for _ in 0..<data.count{
-            data.remove(at: 0)
+        if(value.count >= 6){
+            for _ in 0..<data.count{
+                data.remove(at: 0)
+            }
+            data.append(Data(time: time0, value: Int(value[0])))
+            data.append(Data(time: time1, value: Int(value[1])))
+            data.append(Data(time: time2, value: Int(value[2])))
+            data.append(Data(time: time3, value: Int(value[3])))
+            data.append(Data(time: time4, value: Int(value[4])))
+            data.append(Data(time: time5, value: Int(value[5])))
         }
         
-        data.append(Data(time: time0, value: Int(value[0])))
-        data.append(Data(time: time1, value: Int(value[1])))
-        data.append(Data(time: time2, value: Int(value[2])))
-        data.append(Data(time: time3, value: Int(value[3])))
-        data.append(Data(time: time4, value: Int(value[4])))
-        data.append(Data(time: time5, value: Int(value[5])))
-
-
     }
 }
