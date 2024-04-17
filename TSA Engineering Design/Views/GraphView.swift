@@ -38,12 +38,14 @@ struct GraphView: View {
                             Spacer()
                         }
                         .padding(.leading, 60)
-                        Text("Your sodium levels have increased recently. Strssed? Take a few deep breaths. Check out your diet tab for recommended foods")
+                        Text("Your sodium levels have increased recently. Stressed? Take a few deep breaths. Check out your diet tab for recommended foods")
                             .font(.system(size: 14))
                             .opacity(0.7)
                             .padding([.leading, .trailing], 52)
                     }
                 }
+                Text("Data is measured in analog currents")
+                    .fontWeight(.bold)
                 HStack{
                     Text("NOW")
                     Text(Date.now, format: .dateTime.hour().minute())

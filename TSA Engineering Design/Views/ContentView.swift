@@ -262,7 +262,7 @@ struct ContentView: View {
                         }
                     }
                     .padding([.leading, .trailing], 70)
-                    .padding(.bottom, 10)
+                    .padding(.bottom, 20)
                 }
             }
         }

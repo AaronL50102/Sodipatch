@@ -44,15 +44,16 @@ struct CalendarView: View {
                         .fontWeight(.heavy)
                         .font(.system(size: 50))
                         .frame(alignment: .leading)
+                        .offset(y: -30)
                     Text("mEq/L")
                         .foregroundColor(Color(hue: 1.0, saturation: 0.0, brightness: 0.302))
                         .fontWeight(.bold)
-                        .offset(x: 30, y: -10)
+                        .offset(x: 30, y: -40)
                 }
                 VStack{
-                    Text(Data.state())//Change later according to actual level
+                    Text(Data.arbitraryState(date: date.formatted(date: .long, time: .omitted)))//Change later according to actual level
                         .fontWeight(.bold)
-                        .foregroundColor(Data.state() == "Moderate / Normal" ? .green : .red)
+                        .foregroundColor(Data.arbitraryState(date: date.formatted(date: .long, time: .omitted)) == "Moderate / Normal" ? .green : .red)
                         .font(.system(size: 10))
                     Text("Daily Avg.")
                         .font(.system(size: 20))
@@ -67,19 +68,19 @@ struct CalendarView: View {
             switch (date.formatted(date: .long, time: .omitted)){
             case "April 15, 2024":
                 ArbitraryGraph(data:[
-                    sodiumData(time: Date(timeIntervalSinceReferenceDate: 21600*4), level: 1024),
-                    sodiumData(time: Date(timeIntervalSinceReferenceDate: 21600*3), level: 924),
-                    sodiumData(time: Date(timeIntervalSinceReferenceDate: 21600*2), level: 1124),
-                    sodiumData(time: Date(timeIntervalSinceReferenceDate: 21600), level: 824),
-                    sodiumData(time: Date(timeIntervalSinceReferenceDate: 0), level: 899)
-                ])
-            case "April 16, 2024":
-                ArbitraryGraph(data:[
                     sodiumData(time: Date(timeIntervalSinceReferenceDate: 21600*4), level: 784),
                     sodiumData(time: Date(timeIntervalSinceReferenceDate: 21600*3), level: 603),
                     sodiumData(time: Date(timeIntervalSinceReferenceDate: 21600*2), level: 927),
                     sodiumData(time: Date(timeIntervalSinceReferenceDate: 21600), level: 715),
                     sodiumData(time: Date(timeIntervalSinceReferenceDate: 0), level: 563)
+                ])
+            case "April 16, 2024":
+                ArbitraryGraph(data:[
+                    sodiumData(time: Date(timeIntervalSinceReferenceDate: 21600*4), level: 1024),
+                    sodiumData(time: Date(timeIntervalSinceReferenceDate: 21600*3), level: 924),
+                    sodiumData(time: Date(timeIntervalSinceReferenceDate: 21600*2), level: 1124),
+                    sodiumData(time: Date(timeIntervalSinceReferenceDate: 21600), level: 824),
+                    sodiumData(time: Date(timeIntervalSinceReferenceDate: 0), level: 899)
                 ])
             case "April 17, 2024":
                 ArbitraryGraph(data:[

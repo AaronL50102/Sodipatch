@@ -30,7 +30,7 @@ struct Data: Identifiable, Equatable {
         Data(time: Calendar.current.component(.second, from: Date.now)-1, value: values[4]),
         Data(time: Calendar.current.component(.second, from: Date.now), value: values[5])
     ]
-        
+    
     static func state() -> String {
         var stateMessage = String()
         //Change these values accordingly
@@ -46,6 +46,19 @@ struct Data: Identifiable, Equatable {
         return stateMessage
     }
     
+    static func arbitraryState(date: String) -> String {
+        switch (date) {
+        case "April 15, 2024":
+            return "Moderate / Normal"
+        case "April 16, 2024":
+            return "! High Sodium"
+        case "April 17, 2024":
+            return "Moderate / Normal"
+        default:
+            return "Moderate / Normal"
+        }
+    }
+    
     static func average() -> Int {
         return (data[5].value + data[4].value + data[3].value + data[2].value + data[1].value + data[0].value) / 6
     }
@@ -53,9 +66,9 @@ struct Data: Identifiable, Equatable {
     static func arbitraryAverage(date: String) -> Int {
         switch (date) {
         case "April 15, 2024":
-            return average1
-        case "April 16, 2024":
             return average2
+        case "April 16, 2024":
+            return average1
         case "April 17, 2024":
             return average3
         default:
