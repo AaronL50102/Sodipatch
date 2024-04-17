@@ -16,6 +16,12 @@ struct Data: Identifiable, Equatable {
     
     static var values = [1024, 924, 824, 724, 624, 524]
     
+    //IGNORE THESE VALUES
+    static var average1 = (1024+924+1124+824+899)/5;
+    static var average2 = (784+603+927+715+563)/5;
+    static var average3 = (832+569+718+654+812)/5;
+    static var average4 = (879+526+940+602+714)/5;
+    
     static var data: [Data] = [
         Data(time: Calendar.current.component(.second, from: Date.now)-5, value: values[0]),
         Data(time: Calendar.current.component(.second, from: Date.now)-4, value: values[1]),
@@ -24,7 +30,7 @@ struct Data: Identifiable, Equatable {
         Data(time: Calendar.current.component(.second, from: Date.now)-1, value: values[4]),
         Data(time: Calendar.current.component(.second, from: Date.now), value: values[5])
     ]
-    
+        
     static func state() -> String {
         var stateMessage = String()
         //Change these values accordingly
@@ -42,6 +48,19 @@ struct Data: Identifiable, Equatable {
     
     static func average() -> Int {
         return (data[5].value + data[4].value + data[3].value + data[2].value + data[1].value + data[0].value) / 6
+    }
+    
+    static func arbitraryAverage(date: String) -> Int {
+        switch (date) {
+        case "April 15, 2024":
+            return average1
+        case "April 16, 2024":
+            return average2
+        case "April 17, 2024":
+            return average3
+        default:
+            return average4
+        }
     }
     
     static func updateData(value: Int, interval: Int){
@@ -73,6 +92,5 @@ struct Data: Identifiable, Equatable {
             data.append(Data(time: time4, value: Int(value[4])))
             data.append(Data(time: time5, value: Int(value[5])))
         }
-        
     }
 }
